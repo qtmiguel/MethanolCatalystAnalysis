@@ -1,5 +1,5 @@
 % ----------| Main Program |-----------------------------------------------
-%     Chemical Engineering Department
+%     Chemical Engineering Department - Universidad de Zaragoza
 %     Author: Daniel Z. Juca
 % ------------------------ | init | ---------------------------------------
     close all
@@ -50,9 +50,9 @@
                 [z,u]      = ode15s(odeModel,zout,u0,options);
                 [X_CO2_temp, ~] = xi_Fcn(z, u, Global);
                 
-                % Comprueba si X_CO2 se ha estabilizado
+                % Check if X_CO2 has stabilized
                 if X_CO2_temp(end) > X_CO2_exp
-                    disp(['X_CO2 se ha estabilizado en factor = ', ...
+                    disp(['X_CO2 has stabilized at factor = ', ...
                            num2str(factor)]);
                     break;
                 end

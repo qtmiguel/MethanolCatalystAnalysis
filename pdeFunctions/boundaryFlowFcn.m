@@ -1,4 +1,6 @@
 function Global = boundaryFlowFcn(Global, factor)
+% -------------------------------------------------------------------------
+% unpack data from Global structure
 
       GHSV                 = Global.GHSV;
       z_id_ratio           = Global.z_id_ratio;
@@ -17,6 +19,8 @@ function Global = boundaryFlowFcn(Global, factor)
           GHSV = GHSV*(1 - factor);
 
       end
+% -------------------------------------------------------------------------
+% Calculate the flow rates
 
       z             = (z_id_ratio*r_id);%                               [m]
       area          = pi*(r_id/2)^2;    %                              [m2]
@@ -38,7 +42,9 @@ function Global = boundaryFlowFcn(Global, factor)
       FCO2_in       = FCO2_mol_in/(area);          %             [mol/m2.s]
       FH2_in        = FH2_mol_in/(area);           %             [mol/m2.s]
       FN2_in        = 0.00;                        %             [mol/m2.s]
-
+      
+% -------------------------------------------------------------------------
+% Update Global structure
 
       Global.area       = area; 
       Global.FCO2_in    = FCO2_in;
@@ -47,7 +53,6 @@ function Global = boundaryFlowFcn(Global, factor)
       Global.z          = z;
       Global.GHSV       = GHSV;
 
-
-
+% -------------------------------------------------------------------------
 
 end
